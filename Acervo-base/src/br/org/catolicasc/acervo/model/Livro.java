@@ -10,16 +10,18 @@ import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import br.org.catolicasc.acervo.dao.util.AdaptadorAutores;
 import br.org.catolicasc.acervo.dao.util.AdaptadorData;
 
-@XmlSeeAlso(Ebook.class)
-@XmlAccessorType(XmlAccessType.FIELD)
+@XmlSeeAlso(Ebook.class) //Faz com que o XML enxergue também a classe Ebook
+@XmlAccessorType(XmlAccessType.FIELD) //Mapeia o XML pelos campos
 public class Livro {
 
 	private String nome;
 	@XmlElementWrapper(name = "autores")
-	@XmlElement(name = "autor")
-	private List<String> autores;
+	@XmlElement(name = "autor") //Altera o nome do campo a ser mostrado
+	@XmlJavaTypeAdapter(AdaptadorAutores.class) //No XML utiliza AdaptadorAutores para os autores
+	private List<Autor> autores;
 	private String editora;
 	private Integer anoDePublicacao;
 	private String resumo;
@@ -35,11 +37,11 @@ public class Livro {
 		this.nome = nome;
 	}
 
-	public List<String> getAutores() {
+	public List<Autor> getAutores() {
 		return autores;
 	}
 
-	public void setAutores(List<String> autores) {
+	public void setAutores(List<Autor> autores) {
 		this.autores = autores;
 	}
 

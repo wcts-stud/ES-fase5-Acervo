@@ -35,10 +35,10 @@ public class LivroService {
 	}
 
 	public static void main(String[] args) {
-		Endpoint.publish("http://localhost:8181/livros"
+		Endpoint.publish("http://localhost:8081/livros"
 				, new LivroService());
 		System.out.println(" Serviço iniciado! \n\t"
-				+ "Acesse: http://localhost:8181/livros?wsdl");
+				+ "Acesse: http://localhost:8081/livros?wsdl");
 	}
 	
 }

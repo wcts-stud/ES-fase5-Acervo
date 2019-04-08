@@ -8,6 +8,7 @@ import javax.xml.datatype.DatatypeConstants;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 
+
 public class AdaptadorData extends XmlAdapter<XMLGregorianCalendar, Date> {
 	
 	
